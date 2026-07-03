@@ -47,9 +47,16 @@ def parse_transcript(text: str) -> list[TranscriptUnit]:
     blocks: list[tuple[int, str | None, str | None, str]] = []
 
     if matches:
-        for index, match in enumerate(matches):
+        for index, timestamp_match in enumerate(matches):
             body_end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
-            blocks.append((index + 1, match.group(1), match.group(2), text[match.end():body_end]))
+            blocks.append(
+                (
+                    index + 1,
+                    timestamp_match.group(1),
+                    timestamp_match.group(2),
+                    text[timestamp_match.end():body_end],
+                )
+            )
     else:
         blocks.append((1, None, None, text))
 
@@ -59,10 +66,10 @@ def parse_transcript(text: str) -> list[TranscriptUnit]:
         for sentence in split_sentences(body):
             unit_id += 1
             speaker: str | None = None
-            match = SPEAKER_RE.match(sentence)
-            if match:
-                speaker = match.group("speaker").strip()
-                sentence = match.group("text").strip()
+            speaker_match = SPEAKER_RE.match(sentence)
+            if speaker_match:
+                speaker = speaker_match.group("speaker").strip()
+                sentence = speaker_match.group("text").strip()
             units.append(
                 TranscriptUnit(
                     unit_id=unit_id,
