@@ -95,9 +95,13 @@ strict = true
 
 [[tool.mypy.overrides]]
 module = [
+  "faster_whisper",
   "faster_whisper.*",
+  "pyannote",
   "pyannote.*",
+  "presidio_analyzer",
   "presidio_analyzer.*",
+  "presidio_anonymizer",
   "presidio_anonymizer.*",
 ]
 ignore_missing_imports = true
