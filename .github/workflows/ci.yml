@@ -25,13 +25,14 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: pip install -e '.[dev,nlp]'
       - run: ruff check .
-      - name: Type-check domain, ports, retrieval, evaluation and upstream registry
+      - name: Type-check domain, ports, retrieval, evaluation, pipelines and upstream registry
         run: >-
           python -m mypy --follow-imports=skip
           src/meeting_intelligence/domain
           src/meeting_intelligence/ports.py
           src/meeting_intelligence/retrieval
           src/meeting_intelligence/evaluation
+          src/meeting_intelligence/pipelines
           src/meeting_intelligence/upstreams.py
       - name: Type-check optional adapters
         run: >-
