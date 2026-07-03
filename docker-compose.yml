@@ -1,0 +1,12 @@
+services:
+  meeting-intelligence:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      MEETING_INTELLIGENCE_DATA_DIR: /data/private
+      MEETING_INTELLIGENCE_ALLOW_RAW_TRANSCRIPT: "false"
+      MEETING_INTELLIGENCE_MAX_QUOTE_CHARS: "240"
+    volumes:
+      - ./private-data:/data/private

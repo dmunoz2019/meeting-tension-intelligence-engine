@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+
+# Private meeting data
+*.vtt
+*.srt
+*.transcript.*
+transcripts/
+private/
+data/private/
+meeting_data/
+customer_data/
+
+# Generated and project-specific artifacts
+output/
+outputs/
+reports/
+adaptive_rules/
+model_packs/
+embeddings/
+review_feedback/
+*.npz
+*.npy
+*.joblib
+*.pickle
+*.pkl
+*.sqlite
+*.sqlite3
+*.db
+
+# Office exports
+*.xlsx
+*.xls
+*.docx
+*.pdf
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
