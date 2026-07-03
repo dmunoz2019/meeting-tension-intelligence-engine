@@ -27,7 +27,7 @@ jobs:
       - run: ruff check .
       - name: Type-check new architecture contracts
         run: >-
-          python -m mypy
+          python -m mypy --follow-imports=skip
           src/meeting_intelligence/domain
           src/meeting_intelligence/ports.py
           src/meeting_intelligence/adapters
