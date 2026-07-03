@@ -1,0 +1,90 @@
+manifest_version = 1
+policy = "adapter-first; do not commit upstream source or model weights"
+
+[[upstream]]
+name = "faster-whisper"
+repository = "https://github.com/SYSTRAN/faster-whisper"
+ref = "v1.2.1"
+license = "MIT"
+mode = "adapter"
+package = "faster-whisper"
+extra = "audio-faster-whisper"
+purpose = "Batch and word-timestamp speech recognition through CTranslate2"
+weights_policy = "runtime-private-cache"
+
+[[upstream]]
+name = "whisperx"
+repository = "https://github.com/m-bain/whisperX"
+ref = "v3.8.6"
+license = "BSD-2-Clause"
+mode = "reference"
+package = "whisperx"
+extra = "audio-whisperx"
+purpose = "Forced alignment, word timestamps, and diarization orchestration"
+weights_policy = "runtime-private-cache"
+
+[[upstream]]
+name = "pyannote-audio"
+repository = "https://github.com/pyannote/pyannote-audio"
+ref = "4.0.7"
+license = "MIT"
+mode = "adapter"
+package = "pyannote.audio"
+extra = "diarization"
+purpose = "Speaker diarization and speaker activity pipelines"
+weights_policy = "runtime-private-cache"
+
+[[upstream]]
+name = "presidio"
+repository = "https://github.com/data-privacy-stack/presidio"
+ref = "2.2.363"
+license = "MIT"
+mode = "adapter"
+package = "presidio-analyzer"
+extra = "privacy"
+purpose = "PII detection, redaction, masking, and anonymization"
+weights_policy = "runtime-private-cache"
+
+[[upstream]]
+name = "flag-embedding"
+repository = "https://github.com/FlagOpen/FlagEmbedding"
+ref = "v1.4.0"
+license = "MIT"
+mode = "adapter"
+package = "FlagEmbedding"
+extra = "retrieval-bge"
+purpose = "Multilingual dense retrieval and cross-encoder reranking"
+weights_policy = "runtime-private-cache"
+
+[[upstream]]
+name = "pgvector"
+repository = "https://github.com/pgvector/pgvector"
+ref = "master"
+license = "PostgreSQL"
+mode = "service"
+package = "pgvector"
+extra = "postgres"
+purpose = "Private vector similarity search inside PostgreSQL"
+weights_policy = "runtime-private-cache"
+
+[[upstream]]
+name = "opentelemetry-python"
+repository = "https://github.com/open-telemetry/opentelemetry-python"
+ref = "v1.43.0"
+license = "Apache-2.0"
+mode = "adapter"
+package = "opentelemetry-sdk"
+extra = "observability"
+purpose = "Traces, metrics, and logs for processing pipelines"
+weights_policy = "runtime-private-cache"
+
+[[upstream]]
+name = "mlflow"
+repository = "https://github.com/mlflow/mlflow"
+ref = "v3.14.0"
+license = "Apache-2.0"
+mode = "service"
+package = "mlflow"
+extra = "mlops"
+purpose = "Experiment tracking, evaluation, lineage, and model registry"
+weights_policy = "runtime-private-cache"
